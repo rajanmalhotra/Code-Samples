@@ -1,0 +1,26 @@
+DATA STRUCTURES USED
+======================
+The program implements a generic ResourcePool. I have used two data structures for keeping track of available and free resource. This will basically help in doing all the operations in constant time. All the available resources are tracked in a linked list so that whenever a thread needs a resource, we can simply remove a resource from the head of the linked list. This operation can  be done in constant time. To keep track of the occupied resources, I have created a hash map. The key of this hash map is the thread id and the value is the resource occupied. There is a boolean variable which keeps track of whether the resource is opened or not.
+ 
+
+IMPLEMENTATION DECISIONS
+==========================
+The pool throws a PoolNotOpenException if any thread tries to acquire a resource before the pool is open. The acquire() method blocks if a resource is not available. This is implemented using the wait and notify functions of Java. The code is made thread safe by using the synchronizing primitive of Java. There is timeout exception in case the time out expires for acquire() method.
+
+TESTING
+==========
+In order to test the program, I have used the Junit testing framework. I have created a separate file for test cases and documented in comments what is the purpose of each test case. 
+
+FUTURE WORK
+============
+Currently the program has a constraint that a thread at a time can acquire only one resource. Given more time, I would extend this so that a single thread can acquire more than 1 resource.
+
+
+
+
+
+
+
+
+
+
