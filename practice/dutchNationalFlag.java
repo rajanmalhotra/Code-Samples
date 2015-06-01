@@ -18,7 +18,7 @@ public class dutchNationalFlag {
 		int low = 0;
 		int high = size-1;
 		int i = 0;
-		while(i < high){
+		while(i <= high){
 			if(arr[i] < 1){
 				swap(arr, i, low);
 				low++;
